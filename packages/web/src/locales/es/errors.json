@@ -29,6 +29,7 @@
     "failedToSave": "El cuestionario está incompleto, asegúrate de que todas las preguntas tengan un título y al menos una respuesta correcta",
     "failedToUpdate": "Error al actualizar el cuestionario",
     "invalidMediaUrl": "La URL del medio debe ser una URL válida",
+    "invalidSolution": "Una respuesta correcta hace referencia a una respuesta que no existe",
     "noQuestions": "Un cuestionario debe tener al menos una pregunta",
     "notFound": "Cuestionario no encontrado",
     "questionEmpty": "La pregunta no puede estar vacía",

@@ -8,19 +8,25 @@ export const questionMediaValidator = z.object({
   url: z.url("errors:quizz.invalidMediaUrl"),
 })
 
-const questionValidator = z.object({
-  question: z.string().min(1, "errors:quizz.questionEmpty"),
-  media: questionMediaValidator.optional(),
-  answers: z
-    .array(z.string().min(1, "errors:quizz.answerEmpty"))
-    .min(2, "errors:quizz.tooFewAnswers")
-    .max(4, "errors:quizz.tooManyAnswers"),
-  solutions: z
-    .union([z.number().int().min(0), z.array(z.number().int().min(0)).min(1)])
-    .transform((v) => (Array.isArray(v) ? v : [v])),
-  cooldown: z.number().int().min(3).max(15),
-  time: z.number().int().min(-1),
-})
+const questionValidator = z
+  .object({
+    question: z.string().min(1, "errors:quizz.questionEmpty"),
+    media: questionMediaValidator.optional(),
+    answers: z
+      .array(z.string().min(1, "errors:quizz.answerEmpty"))
+      .min(2, "errors:quizz.tooFewAnswers")
+      .max(4, "errors:quizz.tooManyAnswers"),
+    solutions: z
+      .union([z.number().int().min(0), z.array(z.number().int().min(0)).min(1)])
+      .transform((v) => (Array.isArray(v) ? v : [v])),
+    cooldown: z.number().int().min(3).max(15),
+    time: z.number().int().min(-1),
+  })
+  .refine(
+    ({ answers, solutions }) =>
+      solutions.every((index) => index < answers.length),
+    { message: "errors:quizz.invalidSolution", path: ["solutions"] },
+  )
 
 export const quizzValidator = z.object({
   subject: z.string().min(1, "errors:quizz.subjectEmpty"),

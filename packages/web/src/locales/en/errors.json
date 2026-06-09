@@ -29,6 +29,7 @@
     "failedToSave": "Quizz is incomplete, make sure all questions have a title and at least one correct answer",
     "failedToUpdate": "Failed to update quizz",
     "invalidMediaUrl": "Media URL must be a valid URL",
+    "invalidSolution": "A correct answer refers to an answer that does not exist",
     "noQuestions": "A quizz must have at least one question",
     "notFound": "Quizz not found",
     "questionEmpty": "Question cannot be empty",
