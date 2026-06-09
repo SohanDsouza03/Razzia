@@ -175,6 +175,29 @@ Quiz Options:
 4. Wait for players to join
 5. Click the start button to begin the game
 
+## 🧱 Project Structure
+
+Razzia is a [pnpm](https://pnpm.io/) workspace monorepo:
+
+| Package            | Description                                                            |
+| ------------------ | ---------------------------------------------------------------------- |
+| `packages/common`  | Shared TypeScript types, constants and Zod validators.                 |
+| `packages/socket`  | Socket.IO game server that runs the game loop and persists data.       |
+| `packages/web`     | React + Vite front-end for the player and manager interfaces.          |
+
+## 🧑‍💻 Development
+
+The most common scripts (run from the repository root):
+
+| Script               | Description                                              |
+| -------------------- | -------------------------------------------------------- |
+| `pnpm dev`           | Run every package in watch mode.                         |
+| `pnpm dev:web`       | Run only the web front-end.                              |
+| `pnpm dev:socket`    | Run only the game server.                                |
+| `pnpm build`         | Build all packages for production.                       |
+| `pnpm lint`          | Type-check every package and run oxlint.                 |
+| `pnpm format`        | Check formatting with Prettier (`format:fix` applies it).|
+
 ## 📝 Contributing
 
 Contributions are welcome! Please read the [CONTRIBUTING.md](.github/CONTRIBUTING.md) guide before submitting a pull request.
