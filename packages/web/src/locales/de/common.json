@@ -10,7 +10,8 @@
     "es": "Spanisch",
     "fr": "Französisch",
     "it": "Italienisch",
-    "ja": "Japanisch"
+    "ja": "Japanisch",
+    "select": "Sprache auswählen"
   },
   "loading": "Laden...",
   "next": "Weiter",
