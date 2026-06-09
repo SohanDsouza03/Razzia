@@ -67,9 +67,9 @@ export const getGameConfig = (): GameConfig => {
     return JSON.parse(config) as GameConfig
   } catch (error) {
     console.error("Failed to read game config:", error)
-  }
 
-  return {} as GameConfig
+    throw new Error("Failed to read game config")
+  }
 }
 
 export const getQuizzMeta = () =>
