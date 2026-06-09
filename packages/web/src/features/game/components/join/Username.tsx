@@ -21,11 +21,16 @@ const Username = () => {
   const { t } = useTranslation()
 
   const handleLogin = () => {
-    if (!gameId) {
+    const trimmedUsername = username.trim()
+
+    if (!gameId || !trimmedUsername) {
       return
     }
 
-    socket.emit(EVENTS.PLAYER.LOGIN, { gameId, data: { username } })
+    socket.emit(EVENTS.PLAYER.LOGIN, {
+      gameId,
+      data: { username: trimmedUsername },
+    })
   }
 
   const handleKeyDown = (event: KeyboardEvent) => {
