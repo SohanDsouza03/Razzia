@@ -41,7 +41,10 @@ export const managerSocketHandlers = ({ socket }: SocketContext) => {
       emitConfig(socket)
     } catch (error) {
       console.error("Failed to read game config:", error)
-      socket.emit(EVENTS.MANAGER.ERROR_MESSAGE, "errors:failedToReadConfig")
+      socket.emit(
+        EVENTS.MANAGER.ERROR_MESSAGE,
+        "errors:manager.failedToReadConfig",
+      )
     }
   })
 }
