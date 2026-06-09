@@ -6,8 +6,31 @@ Thank you for your interest in contributing!
 
 1. Fork the repository
 2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/Razzia.git`
-3. Install dependencies: `npm install` (in both root and client folders if applicable)
+3. Install dependencies from the repository root: `pnpm install`
 4. Create a branch: `git checkout -b feat/your-feature-name`
+
+## Project Structure
+
+Razzia is a pnpm workspace monorepo. The source lives under `packages/`:
+
+- `packages/common` — shared TypeScript types, constants and Zod validators used by both the server and the web client.
+- `packages/socket` — the Socket.IO game server that runs the game loop and persists quizzes and results.
+- `packages/web` — the React + Vite front-end (player and manager interfaces).
+
+## Local Development
+
+Run every package in watch mode from the repository root:
+
+```bash
+pnpm dev
+```
+
+You can also run a single package:
+
+```bash
+pnpm dev:web     # front-end only
+pnpm dev:socket  # game server only
+```
 
 ## Branch Naming
 
@@ -34,7 +57,8 @@ chore: update dependencies
 
 ## Code Style
 
-- Run `npm run lint` and fix any errors before committing
+- Run `pnpm lint` and fix any errors before committing
+- Run `pnpm format` to check formatting (`pnpm format:fix` applies it)
 - Keep components small and focused
 - No commented-out code
 
