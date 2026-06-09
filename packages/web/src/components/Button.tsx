@@ -21,9 +21,11 @@ const Button = ({
   className,
   classNameContent,
   size = "md",
+  type = "button",
   ...otherProps
 }: Props) => (
   <button
+    type={type}
     className={twMerge(
       clsx(
         "bg-primary rounded-lg font-semibold text-white hover:brightness-[1.05] active:brightness-[0.95]",
