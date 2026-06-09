@@ -241,6 +241,15 @@ export class RoundManager {
       return
     }
 
+    const isValidAnswer =
+      Number.isInteger(answerId) &&
+      answerId >= 0 &&
+      answerId < question.answers.length
+
+    if (!isValidAnswer) {
+      return
+    }
+
     if (this.playersAnswers.find((a) => a.playerId === socket.id)) {
       return
     }
