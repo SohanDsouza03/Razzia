@@ -2,14 +2,17 @@ import { twMerge } from "tailwind-merge"
 
 interface Props {
   className?: string
+  label?: string
 }
 
-const Loader = ({ className }: Props) => (
+const Loader = ({ className, label = "Loading" }: Props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className={twMerge("text-[#fff4e4]", className)}
     viewBox="0 0 100 100"
     preserveAspectRatio="xMidYMid"
+    role="img"
+    aria-label={label}
   >
     <circle
       cx="50"
